@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            height: 581px;
+            width: 100vw;
+            background-image: repeating-linear-gradient(135deg, rgba(0, 0, 0, .1) 0px, rgba(0, 0, 0, 0.1) 2px, transparent 2px, transparent 4px), linear-gradient(45deg, #040404, rgb(238, 238, 238));
+            display: grid;
+            place-items: center;
+            position: relative;
+        }
+
+        #btn-login {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" class="btn btn-primary" style="flex-direction: column-reverse; margin-right: 0;"
+        id="btn-login" ><a href="javascript:iniciarSesion()" style='text-decoration: none; color:white;'>Iniciar Sesion</a></button>
+    <div id="m1" class="display-1" style="color: white">Welcome to my website</div>
+    <div class="imagen-centro">
+        <img src="https://static.vecteezy.com/system/resources/previews/022/484/651/non_2x/happy-3d-student-boy-with-books-on-white-background-transparent-background-free-png.png?hl=en-US"
+            alt="Profile Image" class="h-28 w-28 rounded-lg" width="400px">
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times</span>
+            <h2 id="titulo-modal">Titulo Modal</h2>
+            <div id="contenido-modal">
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
