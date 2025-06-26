@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Insertar Persona</title>
 </head>
-
 <body>
-    <form action="javascript:guardarInsertar()" id="form-create" method="post">
+    <form action="create.php" method="post">
         <label for="Nombre">Nombres:</label>
-        <input type="text" name="Nombre">
+        <input type="text" name="Nombre" required>
         <br>
         <label for="Apellido">Apellidos:</label>
-        <input type="text" name="Apellido">
+        <input type="text" name="Apellido" required>
         <br>
         <label for="Fecha_nacimiento">Fecha de Nacimiento:</label>
-        <input type="date" name="Fecha_nacimiento">
+        <input type="date" name="Fecha_nacimiento" required>
         <br>
         <label for="Sexo">Sexo:</label>
-        <input type="radio" name="Sexo" value="M">Masculino
-        <input type="radio" name="Sexo" value="F">Femenino
+        <input type="radio" name="Sexo" value="M" required>Masculino
+        <input type="radio" name="Sexo" value="F" required>Femenino
         <br>
         <label for="Correo">Correo:</label>
-        <input type="email" name="Correo">
+        <input type="email" name="Correo" required>
+        <br>
+        ⭐ <label for="password">Contraseña:</label>
+        ⭐ <input type="password" name="password" required>
         <br>
         <label for="nivel">Nivel:</label>
         <select name="nivel" required>
@@ -31,8 +32,7 @@
             <option value="0" selected>Usuario normal</option>
         </select>
         <br>
-        <input type="submit" value="guardar">
+        <input type="submit" value="Guardar">
     </form>
 </body>
-
 </html>

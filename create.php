@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: application/json');
-error_reporting(0); // Evita warnings/notices en la respuesta
 include("conexion.php");
 
 $Nombre = $_POST['Nombre'] ?? '';
@@ -8,22 +6,19 @@ $Apellido = $_POST['Apellido'] ?? '';
 $Fecha_nacimiento = $_POST['Fecha_nacimiento'] ?? '';
 $Sexo = $_POST['Sexo'] ?? '';
 $Correo = $_POST['Correo'] ?? '';
+$password = $_POST['password'] ?? '';
+$nivel = $_POST['nivel'] ?? 0;
 
-$stmt = $con->prepare('INSERT INTO personas(Nombre, Apellido, Fecha_nacimiento, Sexo, Correo) VALUES(?,?,?,?,?)');
-$stmt->bind_param("sssss", $Nombre, $Apellido, $Fecha_nacimiento, $Sexo, $Correo);
+$hashed_password = sha1($password); // puedes cambiar a password_hash() si prefieres
+
+$stmt = $con->prepare("INSERT INTO personas (Nombre, Apellido, Fecha_nacimiento, Sexo, Correo, password, nivel) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssssi", $Nombre, $Apellido, $Fecha_nacimiento, $Sexo, $Correo, $hashed_password, $nivel);
 
 if ($stmt->execute()) {
-    echo json_encode([
-        'success' => true,
-        'message' => "Nuevo usuario ha sido creado."
-    ]);
+    echo "Nuevo registro creado con éxito";
 } else {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Error al insertar: ' . $stmt->error
-    ]);
+    echo "Error: " . $stmt->error;
 }
-$stmt->close();
 $con->close();
-exit;
 ?>
+<meta http-equiv="refresh" content="3;url=read.php">
